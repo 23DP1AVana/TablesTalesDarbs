@@ -15,8 +15,8 @@ const RestaurantDetail = () => {
     return (
       <div className="restaurant-detail">
         <div className="content-container">
-          <h2>Restaurant not found</h2>
-          <button onClick={() => navigate('/')}>Back to Home</button>
+          <h2>Restorāns nav atrasts</h2>
+          <button onClick={() => navigate('/')}>Atpakaļ uz sākumlapu</button>
         </div>
       </div>
     )
@@ -48,7 +48,7 @@ const RestaurantDetail = () => {
         <div className="hero-overlay">
           <div className="content-container">
             <button className="back-button" onClick={() => navigate('/')}>
-              ← Back to Search
+              ← Atpakaļ uz meklēšanu
             </button>
             <h1 className="restaurant-title">{restaurant.name}</h1>
           </div>
@@ -63,7 +63,7 @@ const RestaurantDetail = () => {
                 <div className="stars-large">{renderStars(restaurant.rating)}</div>
                 <div className="rating-text">
                   <span className="rating-number-large">{restaurant.rating}</span>
-                  <span className="review-count-large">({restaurant.reviews} reviews)</span>
+                  <span className="review-count-large">({restaurant.reviews} atsauksmes)</span>
                 </div>
               </div>
               <div className="restaurant-tags">
@@ -74,24 +74,24 @@ const RestaurantDetail = () => {
             </div>
 
             <div className="section">
-              <h2 className="section-title">About</h2>
+              <h2 className="section-title">Par restorānu</h2>
               <p className="description">{restaurant.description}</p>
             </div>
 
             <div className="section">
-              <h2 className="section-title">Details</h2>
+              <h2 className="section-title">Detaļas</h2>
               <div className="details-grid">
                 <div className="detail-item">
-                  <strong>Cuisine:</strong> {restaurant.cuisine}
+                  <strong>Virtuve:</strong> {restaurant.cuisine}
                 </div>
                 <div className="detail-item">
-                  <strong>Price Range:</strong> {restaurant.priceRange}
+                  <strong>Cenu diapazons:</strong> {restaurant.priceRange}
                 </div>
                 <div className="detail-item">
-                  <strong>Location:</strong> {restaurant.location}
+                  <strong>Adrese:</strong> {restaurant.location}
                 </div>
                 <div className="detail-item">
-                  <strong>Phone:</strong> {restaurant.phone}
+                  <strong>Tālrunis:</strong> {restaurant.phone}
                 </div>
               </div>
             </div>
@@ -99,15 +99,15 @@ const RestaurantDetail = () => {
 
           <div className="detail-sidebar">
             <div className="reservation-card">
-              <h3 className="reservation-title">Make a Reservation</h3>
+              <h3 className="reservation-title">Rezervēt galdu</h3>
               {!showReservationForm ? (
                 <div className="reservation-preview">
-                  <p className="reservation-text">Select date and time to book a table</p>
+                  <p className="reservation-text">Izvēlieties datumu un laiku, lai rezervētu galdu</p>
                   <button
                     className="btn-reserve"
                     onClick={() => setShowReservationForm(true)}
                   >
-                    Find a Table
+                    Atrast galdu
                   </button>
                 </div>
               ) : (

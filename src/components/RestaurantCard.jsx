@@ -37,7 +37,7 @@ const RestaurantCard = ({ restaurant }) => {
         <div className="restaurant-rating">
           <div className="stars">{renderStars(restaurant.rating)}</div>
           <span className="rating-number">{restaurant.rating}</span>
-          <span className="review-count">({restaurant.reviews} reviews)</span>
+          <span className="review-count">({restaurant.reviews} atsauksmes)</span>
         </div>
         <div className="restaurant-meta">
           <span className="cuisine">{restaurant.cuisine}</span>

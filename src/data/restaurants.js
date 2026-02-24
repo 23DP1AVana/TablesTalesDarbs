@@ -9,7 +9,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 321 321",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    description: "Award-winning fine dining restaurant offering modern Latvian cuisine with international influences. Known for its innovative tasting menus featuring local Baltic ingredients and exceptional wine pairings."
+    description: "Apbalvots restorāns ar modernu latviešu virtuvi un starptautiskiem iedarbiem. Pazīstams ar inovatīvajiem ēdienu komplektiem no Baltijas sastāvdaļām un izcilu vīnu izvēli."
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const restaurants = [
     location: "Rīga, Vecrīga",
     phone: "+371 67 222 333",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Elegant European restaurant in the heart of Old Riga. Features seasonal menus with a focus on Baltic seafood and traditional Latvian dishes with a modern twist."
+    description: "Elegants eiropiešu restorāns Vecrīgas sirdī. Sezonālie ēdienkarti ar fokusu uz Baltijas jūras produktiem un tradicionāliem latviešu ēdieniem ar modernu pieskārienu."
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 111 222",
     image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Modern restaurant featuring three talented chefs creating innovative dishes. The open kitchen allows guests to watch the culinary artistry unfold."
+    description: "Moderns restorāns ar trim talantīgiem pavāriem, kas rada inovatīvus ēdienus. Atklātā virtuve ļauj viesiem vērot kulinārijas mākslu."
   },
   {
     id: 4,
@@ -44,8 +44,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Jūrmala, Majori",
     phone: "+371 67 444 555",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Beachfront restaurant in Jurmala offering Mediterranean cuisine with fresh local ingredients. Perfect for a romantic dinner with sea views."
+    image: "https://images.unsplash.com/photo-1473496169904-7c8c43404835?w=800&h=600&fit=crop",
+    description: "Restorāns Jūrmalā pie jūras ar Vidusjūras virtuvi un svaigām vietējām sastāvdaļām. Ideāli romantiskai vakariņām ar jūras skatu."
   },
   {
     id: 5,
@@ -56,8 +56,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 666 777",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Authentic Latvian tavern serving traditional Baltic cuisine and craft beers. Live folk music and a cozy atmosphere make this a local favorite."
+    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop",
+    description: "Autentiska latviešu krogs ar tradicionālu Baltijas virtuvi un amatnieku alus. Dzīva tautas mūzika un mājīga atmosfēra — vietējo favorīts."
   },
   {
     id: 6,
@@ -68,8 +68,8 @@ export const restaurants = [
     priceRange: "$",
     location: "Rīga, Ķīpsala",
     phone: "+371 67 888 999",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Popular family-friendly restaurant chain offering traditional Latvian comfort food. Self-service buffet with fresh, locally-sourced ingredients."
+    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&h=600&fit=crop",
+    description: "Populāra ģimenes restorānu ķēde ar tradicionālu latviešu ēdienu. Pašapkalpošanās bufete ar svaigām vietējām sastāvdaļām."
   },
   {
     id: 7,
@@ -80,8 +80,8 @@ export const restaurants = [
     priceRange: "$$$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 000 111",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Upscale French restaurant in a historic building in Old Riga. Classic French techniques meet Baltic ingredients for an unforgettable dining experience."
+    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
+    description: "Ekskluzīvs franču restorāns vēsturiskā ēkā Vecrīgā. Klasiskas franču tehnikas satiekas ar Baltijas sastāvdaļām neaizmirstamā ēdienu pieredzē."
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 222 444",
     image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Modern restaurant with a focus on seasonal, locally-sourced ingredients. Creative dishes that celebrate Latvian culinary traditions."
+    description: "Moderns restorāns ar fokusu uz sezonāliem un vietējiem produktiem. Radoši ēdieni, kas svin latviešu kulinārijas tradīcijas."
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ export const restaurants = [
     location: "Rīga, Berga Bazārs",
     phone: "+371 67 333 555",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Elegant restaurant in the historic Bergs Bazaar district. European cuisine with Baltic influences, perfect for business lunches and special occasions."
+    description: "Elegants restorāns vēsturiskajā Berga bazāra rajonā. Eiropas virtuve ar Baltijas iedarbiem, ideāli biznesa pusdienām un īpašiem gadījumiem."
   },
   {
     id: 10,
@@ -116,8 +116,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 444 666",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Unique medieval-themed restaurant in Old Riga's cellars. Experience dining like in the Middle Ages with traditional recipes and period-appropriate atmosphere."
+    image: "https://images.unsplash.com/photo-1544148103-0773bf10a191?w=800&h=600&fit=crop",
+    description: "Unikāls viduslaiku tēmas restorāns Vecrīgas pagrabos. Ēdiet kā viduslaikos ar tradicionālām receptēm un atbilstošu atmosfēru."
   },
   {
     id: 11,
@@ -129,7 +129,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 555 777",
     image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&h=600&fit=crop",
-    description: "Authentic Japanese restaurant specializing in sushi and sashimi. Fresh fish imported weekly, traditional techniques, and modern presentation."
+    description: "Autentisks japāņu restorāns ar suši un sašimi. Svaigas zivis ievestas ik nedēļu, tradicionālās tehnikas un moderna prezentācija."
   },
   {
     id: 12,
@@ -140,8 +140,8 @@ export const restaurants = [
     priceRange: "$$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 666 888",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Classic Italian trattoria serving handmade pasta, wood-fired pizzas, and authentic regional dishes. Cozy atmosphere with Italian hospitality."
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop",
+    description: "Klasiska itāļu trattorija ar roku darinātu makaronu, cepeškrāsns picām un autentiskiem reģionāliem ēdieniem. Mājīga atmosfēra ar itāļu viesmīlību."
   },
   {
     id: 13,
@@ -153,7 +153,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 777 999",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop",
-    description: "Premium steakhouse featuring dry-aged beef, fresh seafood, and an extensive wine collection. Perfect for special occasions and business dinners."
+    description: "Premium steakhouse ar sausā zāģētu liellopu gaļu, svaigiem jūras produktiem un plašu vīnu kolekciju. Ideāli īpašiem gadījumiem un biznesa vakariņām."
   },
   {
     id: 14,
@@ -164,8 +164,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 888 000",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Authentic Thai restaurant with bold flavors and aromatic spices. Traditional recipes from different regions of Thailand, vegetarian options available."
+    image: "https://images.unsplash.com/photo-1525755662778-989d0524087a?w=800&h=600&fit=crop",
+    description: "Autentisks taiziešu restorāns ar izteiktu garšu un aromātiskiem garšvielām. Tradicionālās receptes no dažādiem Taizemes reģioniem, pieejamas veģetāriešu opcijas."
   },
   {
     id: 15,
@@ -176,20 +176,20 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Pārdaugava",
     phone: "+371 67 999 111",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Home-style Latvian restaurant serving grandmother's recipes. Hearty portions, traditional flavors, and a warm, welcoming atmosphere."
+    image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&h=600&fit=crop",
+    description: "Mājīgs latviešu restorāns ar vecmāmiņas receptēm. Kopportionēti ēdieni, tradicionālās garšas un silta, viesmīlīga atmosfēra."
   },
   {
     id: 16,
-    name: "Fish Restaurant",
+    name: "Zivju restorāns",
     cuisine: "Seafood",
     rating: 4.5,
     reviews: 1345,
     priceRange: "$$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 000 222",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Fresh seafood restaurant focusing on Baltic Sea catches. Daily specials based on what's available, prepared with simple techniques that highlight the fish."
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&h=600&fit=crop",
+    description: "Restorāns ar svaigiem jūras produktiem no Baltijas jūras. Dienas īpašie ēdieni pēc pieejamības, vienkāršas tehnikas, kas izceļ zivi."
   },
   {
     id: 17,
@@ -200,8 +200,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 111 333",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    description: "Creative vegetarian and vegan restaurant with globally-inspired dishes. Fresh, colorful plates that prove plant-based dining can be exciting and satisfying."
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop",
+    description: "Radošs veģetāriešu un vegānu restorāns ar pasaules iedvesmētiem ēdieniem. Svaigas, krāsainas porcijas, kas pierāda, ka augu bāzēta ēšana var būt aizraujoša."
   },
   {
     id: 18,
@@ -213,7 +213,7 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 222 444",
     image: "https://images.unsplash.com/photo-1565299585323-38174c1b9070?w=800&h=600&fit=crop",
-    description: "Popular pizza chain offering thin-crust pizzas with creative toppings. Quick service, affordable prices, and perfect for casual dining or takeout."
+    description: "Populāra picas ķēde ar plānās garozas picām un radošām piedevām. Ātra apkalpošana, pieejamas cenas, ideāli ikdienas ēšanai vai līdziņņemšanai."
   },
   {
     id: 19,
@@ -224,8 +224,8 @@ export const restaurants = [
     priceRange: "$$$",
     location: "Rīga, Centrs",
     phone: "+371 67 333 555",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Modern restaurant in a converted library building. Creative cuisine, craft cocktails, and a sophisticated atmosphere perfect for date nights."
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&h=600&fit=crop",
+    description: "Moderns restorāns pārveidotā bibliotēkas ēkā. Radoša virtuve, amatnieku kokteiļi un izsmalcināta atmosfēra ideāli romantiskām vakariņām."
   },
   {
     id: 20,
@@ -236,8 +236,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 444 666",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Brewery restaurant featuring craft beers and traditional Latvian pub food. Lively atmosphere, live music on weekends, and a great selection of local brews."
+    image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=800&h=600&fit=crop",
+    description: "Alus darītavas restorāns ar amatnieku alus un tradicionālu latviešu kroga ēdienu. Dzīva atmosfēra, dzīva mūzika nedēļas nogalēs un lieliska vietējo alus izvēle."
   },
   {
     id: 21,
@@ -248,8 +248,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 555 777",
-    image: "https://images.unsplash.com/photo-1565299585323-38174c1b9070?w=800&h=600&fit=crop",
-    description: "Authentic Middle Eastern restaurant serving kebabs, falafel, hummus, and more. Generous portions, bold spices, and friendly service."
+    image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&h=600&fit=crop",
+    description: "Autentisks Tuvāko Austrumu restorāns ar kebabi, falāfelu, humusu un citiem ēdieniem. Kopportionētas porcijas, izteiktas garšvielas un draudzīga apkalpošana."
   },
   {
     id: 22,
@@ -260,8 +260,8 @@ export const restaurants = [
     priceRange: "$",
     location: "Rīga, Centrs",
     phone: "+371 67 666 888",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Traditional Latvian bakery and café. Fresh bread, pastries, and light meals. Perfect for breakfast, lunch, or coffee break."
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop",
+    description: "Tradicionāla latviešu maiznīca un kafejnīca. Svaigs maize, konditorejas izstrādājumi un viegli ēdieni. Ideāli brokastīm, pusdienām vai kafijas pauzei."
   },
   {
     id: 23,
@@ -272,8 +272,8 @@ export const restaurants = [
     priceRange: "$$$",
     location: "Rīga, Centrs",
     phone: "+371 67 777 999",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Rooftop restaurant with panoramic views of Riga. European cuisine with seasonal menus, perfect for special occasions and romantic dinners."
+    image: "https://images.unsplash.com/photo-1424847651672-bf20ade5bbf?w=800&h=600&fit=crop",
+    description: "Restorāns jumtā ar panorāmas skatu uz Rīgu. Eiropas virtuve ar sezonāliem ēdienkartēm, ideāli īpašiem gadījumiem un romantiskām vakariņām."
   },
   {
     id: 24,
@@ -284,8 +284,8 @@ export const restaurants = [
     priceRange: "$$$$",
     location: "Rīga, Centrs",
     phone: "+371 67 888 000",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Art gallery restaurant combining fine dining with contemporary art exhibitions. Innovative dishes that are as beautiful as they are delicious."
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+    description: "Mākslas galerijas restorāns, kas apvieno augstākās klases ēšanu ar mūsdienu mākslas izstādēm. Inovatīvi ēdieni — tik skaisti kā garšīgi."
   },
   {
     id: 25,
@@ -296,8 +296,8 @@ export const restaurants = [
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 999 111",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Cozy Latvian restaurant serving traditional comfort food. Known for excellent potato salads, hearty soups, and homemade desserts."
+    image: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=800&h=600&fit=crop",
+    description: "Mājīgs latviešu restorāns ar tradicionāliem ēdieniem. Pazīstams ar izcilām kartupeļu salātiem, barojošām zupām un mājas desertiem."
   },
   {
     id: 26,
@@ -308,8 +308,8 @@ export const restaurants = [
     priceRange: "$$$",
     location: "Rīga, Centrs",
     phone: "+371 67 000 222",
-    image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&h=600&fit=crop",
-    description: "Authentic Japanese restaurant with traditional decor. Specializes in ramen, tempura, and fresh sushi. Cozy atmosphere perfect for intimate dinners."
+    image: "https://images.unsplash.com/photo-1567622162991-94b32d8e8e8f?w=800&h=600&fit=crop",
+    description: "Autentisks japāņu restorāns ar tradicionālu dekoru. Specializējas ramen, tempura un svaigā suši. Mājīga atmosfēra ideāli intimām vakariņām."
   },
   {
     id: 27,
@@ -320,44 +320,44 @@ export const restaurants = [
     priceRange: "$$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 111 333",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Charming French bistro in Old Riga. Classic French dishes with a modern twist, extensive wine list, and romantic atmosphere."
+    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&h=600&fit=crop",
+    description: "Iezaicinošs franču bistro Vecrīgā. Klasiski franču ēdieni ar modernu pieskārienu, plaša vīnu karte un romantiska atmosfēra."
   },
   {
     id: 28,
-    name: "Burger House",
+    name: "Burgeru nams",
     cuisine: "American",
     rating: 4.2,
     reviews: 3456,
     priceRange: "$",
     location: "Rīga, Centrs",
     phone: "+371 67 222 444",
-    image: "https://images.unsplash.com/photo-1565299585323-38174c1b9070?w=800&h=600&fit=crop",
-    description: "Gourmet burger restaurant with creative toppings and fresh ingredients. Hand-cut fries, craft beers, and casual atmosphere."
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+    description: "Gurmānu burgeru restorāns ar radošām piedevām un svaigām sastāvdaļām. Ar roku sagriezti frī, amatnieku alus un laidback atmosfēra."
   },
   {
     id: 29,
-    name: "Spice Garden",
+    name: "Garšu dārzs",
     cuisine: "Indian",
     rating: 4.4,
     reviews: 1789,
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 333 555",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Authentic Indian cuisine with aromatic spices and traditional recipes. Vegetarian-friendly options and warm, welcoming service."
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&h=600&fit=crop",
+    description: "Autentiska indiešu virtuve ar aromātiskiem garšvielām un tradicionālām receptēm. Veģetāriešu draudzīgas opcijas un silta, viesmīlīga apkalpošana."
   },
   {
     id: 30,
-    name: "Nordic Kitchen",
+    name: "Ziemeļu virtuve",
     cuisine: "Scandinavian",
     rating: 4.5,
     reviews: 987,
     priceRange: "$$$",
     location: "Rīga, Centrs",
     phone: "+371 67 444 666",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    description: "Modern Scandinavian restaurant focusing on Nordic ingredients and techniques. Clean flavors, minimalist presentation, and sustainable sourcing."
+    image: "https://images.unsplash.com/photo-1604329760661-e71dc83f2b26?w=800&h=600&fit=crop",
+    description: "Moderns Ziemeļu restorāns ar fokusu uz Ziemeļu sastāvdaļām un tehnikām. Tīras garšas, minimālistiska prezentācija un ilgtspējīga izejvielu izvēle."
   },
   {
     id: 31,
@@ -369,66 +369,66 @@ export const restaurants = [
     location: "Rīga, Centrs",
     phone: "+371 67 555 777",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop",
-    description: "Argentine steakhouse with authentic flavors. Premium cuts of meat, grilled to perfection, served with traditional sides and Malbec wines."
+    description: "Argentīniešu steakhouse ar autentiskām garšām. Premium gaļas griezumi, perfekti cepti, pasniegti ar tradicionālām piedevām un Malbek vīniem."
   },
   {
     id: 32,
-    name: "Bamboo Garden",
+    name: "Bambusa dārzs",
     cuisine: "Chinese",
     rating: 4.3,
     reviews: 2345,
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 666 888",
-    image: "https://images.unsplash.com/photo-1565299585323-38174c1b9070?w=800&h=600&fit=crop",
-    description: "Traditional Chinese restaurant serving authentic dishes from different regions. Dim sum on weekends, Peking duck, and extensive menu."
+    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&h=600&fit=crop",
+    description: "Tradicionāls ķīniešu restorāns ar autentiskiem ēdieniem no dažādiem reģioniem. Dim sum nedēļas nogalēs, Pekinas pīle un plaša ēdienkarte."
   },
   {
     id: 33,
-    name: "Café Central",
+    name: "Centrālā kafejnīca",
     cuisine: "European",
     rating: 4.4,
     reviews: 1678,
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 777 999",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
-    description: "Classic European café-restaurant perfect for breakfast, lunch, or dinner. Fresh pastries, coffee, and light meals in elegant setting."
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop",
+    description: "Klasiska eiropiešu kafejnīca-restorāns ideāli brokastīm, pusdienām vai vakariņām. Svaigi konditorejas izstrādājumi, kafija un viegli ēdieni elegants vidē."
   },
   {
     id: 34,
-    name: "Green Leaf",
+    name: "Zaļā lapa",
     cuisine: "Vegetarian",
     rating: 4.5,
     reviews: 890,
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 888 000",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    description: "Plant-based restaurant with creative vegetarian and vegan dishes. Fresh, organic ingredients and innovative flavor combinations."
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop",
+    description: "Augu bāzēts restorāns ar radošiem veģetāriešu un vegānu ēdieniem. Svaigas, organiskas sastāvdaļas un inovatīvas garšu kombinācijas."
   },
   {
     id: 35,
-    name: "The Fisherman's Catch",
+    name: "Zvejnieka ķēriens",
     cuisine: "Seafood",
     rating: 4.6,
     reviews: 1456,
     priceRange: "$$$",
     location: "Rīga, Vecrīga",
     phone: "+371 67 999 111",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
-    description: "Seafood restaurant specializing in fresh Baltic fish. Daily catch menu, grilled fish, seafood platters, and ocean views."
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&h=600&fit=crop",
+    description: "Jūras produktu restorāns, specializējas svaigās Baltijas zivīs. Dienas ķēriena ēdienkarte, ceptas zivis, jūras produktu šķīvji."
   },
   {
     id: 36,
-    name: "Riga Brewing Company",
+    name: "Rīgas alus darītava",
     cuisine: "American",
     rating: 4.3,
     reviews: 2123,
     priceRange: "$$",
     location: "Rīga, Centrs",
     phone: "+371 67 000 222",
-    image: "https://images.unsplash.com/photo-1565299585323-38174c1b9070?w=800&h=600&fit=crop",
-    description: "Brewpub with house-brewed beers and American-style comfort food. Wings, burgers, nachos, and lively atmosphere with live sports."
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop",
+    description: "Brewpub ar mājas vārītu alus un amerikāņu stila ēdieniem. Spārni, burgeri, nachos un dzīva atmosfēra ar tiešraides sportu."
   }
 ]

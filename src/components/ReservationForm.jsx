@@ -35,14 +35,14 @@ const ReservationForm = ({ restaurant, onCancel }) => {
     return (
       <div className="reservation-success">
         <div className="success-icon">✓</div>
-        <h3>Reservation Confirmed!</h3>
-        <p>Your reservation at {restaurant.name} has been confirmed.</p>
+        <h3>Rezervācija apstiprināta!</h3>
+        <p>Jūsu rezervācija restorānā {restaurant.name} ir apstiprināta.</p>
         <p className="reservation-details">
-          {formData.date} at {formData.time} for {formData.partySize} {formData.partySize === '1' ? 'person' : 'people'}
+          {formData.date} plkst. {formData.time} uz {formData.partySize} {formData.partySize === '1' ? 'personu' : 'personām'}
         </p>
-        <p className="confirmation-text">A confirmation email has been sent to {formData.email}</p>
+        <p className="confirmation-text">Apstiprinājuma e-pasts nosūtīts uz {formData.email}</p>
         <button className="btn-secondary" onClick={onCancel}>
-          Make Another Reservation
+          Veikt vēl vienu rezervāciju
         </button>
       </div>
     )
@@ -51,7 +51,7 @@ const ReservationForm = ({ restaurant, onCancel }) => {
   return (
     <form className="reservation-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Datums</label>
         <input
           type="date"
           id="date"
@@ -64,7 +64,7 @@ const ReservationForm = ({ restaurant, onCancel }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="time">Time</label>
+        <label htmlFor="time">Laiks</label>
         <select
           id="time"
           name="time"
@@ -72,22 +72,22 @@ const ReservationForm = ({ restaurant, onCancel }) => {
           onChange={handleChange}
           required
         >
-          <option value="">Select time</option>
-          <option value="17:00">5:00 PM</option>
-          <option value="17:30">5:30 PM</option>
-          <option value="18:00">6:00 PM</option>
-          <option value="18:30">6:30 PM</option>
-          <option value="19:00">7:00 PM</option>
-          <option value="19:30">7:30 PM</option>
-          <option value="20:00">8:00 PM</option>
-          <option value="20:30">8:30 PM</option>
-          <option value="21:00">9:00 PM</option>
-          <option value="21:30">9:30 PM</option>
+          <option value="">Izvēlieties laiku</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+          <option value="20:00">20:00</option>
+          <option value="20:30">20:30</option>
+          <option value="21:00">21:00</option>
+          <option value="21:30">21:30</option>
         </select>
       </div>
 
       <div className="form-group">
-        <label htmlFor="partySize">Party Size</label>
+        <label htmlFor="partySize">Viesu skaits</label>
         <select
           id="partySize"
           name="partySize"
@@ -95,20 +95,20 @@ const ReservationForm = ({ restaurant, onCancel }) => {
           onChange={handleChange}
           required
         >
-          <option value="1">1 person</option>
-          <option value="2">2 people</option>
-          <option value="3">3 people</option>
-          <option value="4">4 people</option>
-          <option value="5">5 people</option>
-          <option value="6">6 people</option>
-          <option value="7">7 people</option>
-          <option value="8">8 people</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 personas</option>
+          <option value="7">7 personas</option>
+          <option value="8">8 personas</option>
         </select>
       </div>
 
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">Vārds</label>
           <input
             type="text"
             id="firstName"
@@ -120,7 +120,7 @@ const ReservationForm = ({ restaurant, onCancel }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastName">Uzvārds</label>
           <input
             type="text"
             id="lastName"
@@ -133,7 +133,7 @@ const ReservationForm = ({ restaurant, onCancel }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">E-pasts</label>
         <input
           type="email"
           id="email"
@@ -145,24 +145,24 @@ const ReservationForm = ({ restaurant, onCancel }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="phone">Phone</label>
+        <label htmlFor="phone">Tālrunis</label>
         <input
           type="tel"
           id="phone"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="(555) 123-4567"
+          placeholder="+371 2X XXX XXX"
           required
         />
       </div>
 
       <div className="form-actions">
         <button type="button" className="btn-cancel" onClick={onCancel}>
-          Cancel
+          Atcelt
         </button>
         <button type="submit" className="btn-submit">
-          Confirm Reservation
+          Apstiprināt rezervāciju
         </button>
       </div>
     </form>

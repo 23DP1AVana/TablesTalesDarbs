@@ -42,11 +42,12 @@
   font-weight: 600;
   cursor: pointer;
   color: #333;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .back-button:hover {
   background: white;
+  transform: translateY(-1px);
 }
 
 .content-container {
@@ -126,7 +127,7 @@
 .section-title {
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: #1C5A72;
   margin-bottom: 16px;
 }
 
@@ -185,7 +186,7 @@
 
 .btn-reserve {
   width: 100%;
-  background-color: #da3743;
+  background-color: #1C5A72;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -193,16 +194,18 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-reserve:hover {
-  background-color: #c7313d;
+  background-color: #2a7a94;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 968px) {
   .detail-layout {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   
   .detail-sidebar {
@@ -215,5 +218,109 @@
   
   .details-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-hero {
+    height: 280px;
+  }
+  
+  .hero-overlay {
+    padding-bottom: 24px;
+  }
+  
+  .content-container {
+    padding: 32px 16px;
+  }
+  
+  .restaurant-title {
+    font-size: 28px;
+    margin-top: 12px;
+  }
+  
+  .back-button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .rating-section {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .stars-large .star {
+    font-size: 20px;
+  }
+  
+  .rating-number-large {
+    font-size: 20px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .reservation-card {
+    padding: 20px;
+  }
+  
+  .reservation-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-hero {
+    height: 220px;
+  }
+  
+  .hero-overlay {
+    padding-bottom: 16px;
+  }
+  
+  .content-container {
+    padding: 24px 12px;
+  }
+  
+  .restaurant-title {
+    font-size: 22px;
+    margin-top: 8px;
+  }
+  
+  .back-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .restaurant-header-info {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+  
+  .restaurant-tags {
+    gap: 6px;
+  }
+  
+  .tag {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .section {
+    margin-bottom: 28px;
+  }
+  
+  .description {
+    font-size: 15px;
+  }
+  
+  .reservation-card {
+    padding: 16px;
+  }
+  
+  .btn-reserve {
+    padding: 12px 20px;
+    font-size: 15px;
   }
 }

@@ -1,5 +1,5 @@
 .footer {
-  background-color: #1a1a1a;
+  background-color: #1C5A72;
   color: #fff;
   margin-top: 80px;
   padding: 50px 0 25px;
@@ -30,7 +30,7 @@
 .footer-title {
   font-size: 22px;
   font-weight: 700;
-  color: #da3743;
+  color: white;
   margin-bottom: 12px;
 }
 
@@ -66,14 +66,14 @@
   cursor: pointer;
   padding: 0;
   text-align: left;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: block;
   width: 100%;
 }
 
 .footer-link-btn:hover {
-  color: #da3743;
-  transform: translateX(4px);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(2px);
 }
 
 .social-links {
@@ -83,7 +83,7 @@
 }
 
 .social-link {
-  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 8px;
   padding: 10px 14px;
@@ -91,19 +91,21 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.2s ease, background 0.2s ease;
   color: #fff;
   text-decoration: none;
   font-size: 14px;
 }
 
 .social-link:hover {
-  background-color: #da3743;
-  transform: translateX(4px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(2px);
 }
 
 .social-icon {
-  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .social-text {
@@ -111,7 +113,7 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid #333;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 25px;
   display: flex;
   justify-content: space-between;
@@ -140,7 +142,7 @@
 }
 
 .footer-legal-link:hover {
-  color: #da3743;
+  color: rgba(255, 255, 255, 1);
 }
 
 .footer-legal .separator {
@@ -157,20 +159,59 @@
 @media (max-width: 768px) {
   .footer {
     padding: 40px 0 20px;
+    margin-top: 48px;
+  }
+  
+  .footer-container {
+    padding: 0 16px;
   }
   
   .footer-content {
     grid-template-columns: 1fr;
     gap: 30px;
+    margin-bottom: 28px;
+  }
+  
+  .footer-title {
+    font-size: 20px;
+  }
+  
+  .footer-heading {
+    font-size: 14px;
   }
   
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 16px;
   }
   
   .footer-legal {
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 0 16px;
+    margin-top: 32px;
+  }
+  
+  .footer-container {
+    padding: 0 12px;
+  }
+  
+  .footer-content {
+    gap: 24px;
+  }
+  
+  .footer-title {
+    font-size: 18px;
+  }
+  
+  .footer-copyright,
+  .footer-legal-link {
+    font-size: 12px;
   }
 }
