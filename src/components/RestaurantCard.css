@@ -1,17 +1,18 @@
 .restaurant-card {
-  background: white;
-  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid rgba(248, 250, 252, 0.06);
+  border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .restaurant-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
 .restaurant-image-container {
@@ -19,7 +20,7 @@
   width: 100%;
   height: 200px;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background: rgba(15, 23, 42, 0.6);
 }
 
 .restaurant-image {
@@ -35,32 +36,33 @@
 
 .restaurant-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 4px 12px;
-  border-radius: 4px;
+  top: var(--space-2);
+  right: var(--space-2);
+  background: rgba(30, 41, 59, 0.9);
+  padding: 4px var(--space-2);
+  border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
+  border: 1px solid rgba(248, 250, 252, 0.08);
 }
 
 .restaurant-info {
-  padding: 16px;
+  padding: var(--space-2);
 }
 
 .restaurant-name {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 8px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
 }
 
 .restaurant-rating {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .stars {
@@ -69,16 +71,16 @@
 }
 
 .star {
-  color: #ddd;
+  color: rgba(248, 250, 252, 0.2);
   font-size: 16px;
 }
 
 .star.filled {
-  color: #1C5A72;
+  color: var(--accent);
 }
 
 .star.half {
-  background: linear-gradient(90deg, #1C5A72 50%, #ddd 50%);
+  background: linear-gradient(90deg, var(--accent) 50%, rgba(248, 250, 252, 0.2) 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,26 +88,26 @@
 
 .rating-number {
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   font-size: 14px;
 }
 
 .review-count {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .restaurant-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-1);
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .restaurant-meta span {
-  padding-right: 8px;
-  border-right: 1px solid #ddd;
+  padding-right: var(--space-1);
+  border-right: 1px solid rgba(248, 250, 252, 0.12);
 }
 
 .restaurant-meta span:last-child {
@@ -114,7 +116,7 @@
 }
 
 .price-range {
-  color: #333;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -122,15 +124,12 @@
   .restaurant-image-container {
     height: 180px;
   }
-  
   .restaurant-info {
-    padding: 14px;
+    padding: var(--space-2);
   }
-  
   .restaurant-name {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
   .restaurant-meta {
     font-size: 13px;
   }
@@ -140,30 +139,24 @@
   .restaurant-card {
     border-radius: 12px;
   }
-  
   .restaurant-image-container {
     height: 160px;
   }
-  
   .restaurant-info {
-    padding: 12px;
+    padding: var(--space-2);
   }
-  
   .restaurant-name {
-    font-size: 17px;
-    margin-bottom: 6px;
+    font-size: 16px;
+    margin-bottom: var(--space-1);
   }
-  
   .star {
     font-size: 14px;
   }
-  
   .rating-number,
   .review-count {
     font-size: 13px;
   }
-  
   .restaurant-meta span {
-    padding-right: 6px;
+    padding-right: var(--space-1);
   }
 }

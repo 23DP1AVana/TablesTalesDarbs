@@ -2,11 +2,25 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
+const THEME_KEY = 'theme'
+
+const getInitialTheme = () => {
+  const saved = localStorage.getItem(THEME_KEY)
+  if (saved === 'light' || saved === 'dark') return saved
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [theme, setTheme] = useState(getInitialTheme)
   const location = useLocation()
 
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem(THEME_KEY, theme)
+  }, [theme])
 
   useEffect(() => {
     closeMenu()
@@ -16,6 +30,8 @@ const Header = () => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
+
+  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
 
   const handleRestaurantsClick = (e) => {
     closeMenu()
@@ -35,6 +51,19 @@ const Header = () => {
         <nav className="nav nav-desktop">
           <a href="/#restaurants" className="nav-link">Restorāni</a>
           <Link to="/about" className="nav-link">Par mums</Link>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Ieslēgt gaišo režīmu' : 'Ieslēgt tumšo režīmu'}
+            title={theme === 'dark' ? 'Gaisais režīms' : 'Tumšais režīms'}
+          >
+            {theme === 'dark' ? (
+              <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            ) : (
+              <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            )}
+          </button>
           <Link to="/auth" className="btn-signin">Pieslēgties</Link>
         </nav>
 
@@ -55,6 +84,14 @@ const Header = () => {
       <nav className={`nav nav-mobile ${menuOpen ? 'nav-mobile-open' : ''}`} aria-label="Navigācija">
         <a href="/#restaurants" className="nav-mobile-link" onClick={handleRestaurantsClick}>Restorāni</a>
         <Link to="/about" className="nav-mobile-link" onClick={closeMenu}>Par mums</Link>
+        <button
+          type="button"
+          className="nav-mobile-link theme-toggle-mobile"
+          onClick={() => { toggleTheme(); closeMenu() }}
+          aria-label={theme === 'dark' ? 'Ieslēgt gaišo režīmu' : 'Ieslēgt tumšo režīmu'}
+        >
+          {theme === 'dark' ? '☀️ Gaisais režīms' : '🌙 Tumšais režīms'}
+        </button>
         <Link to="/auth" className="nav-mobile-link nav-mobile-btn" onClick={closeMenu}>Pieslēgties</Link>
       </nav>
     </header>

@@ -1,7 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AboutPage.css'
 
 const AboutPage = () => {
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const [contactStatus, setContactStatus] = useState({
+    type: 'idle',
+    message: '',
+  })
+
+  const handleContactChange = (event) => {
+    const { name, value } = event.target
+    setContactForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+    if (contactStatus.type !== 'idle') {
+      setContactStatus({ type: 'idle', message: '' })
+    }
+  }
+
+  const handleContactSubmit = (event) => {
+    event.preventDefault()
+
+    const trimmedName = contactForm.name.trim()
+    const trimmedEmail = contactForm.email.trim()
+    const trimmedMessage = contactForm.message.trim()
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setContactStatus({
+        type: 'error',
+        message: 'Lūdzu aizpildiet visus laukus.',
+      })
+      return
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailPattern.test(trimmedEmail)) {
+      setContactStatus({
+        type: 'error',
+        message: 'Lūdzu ievadiet derīgu e-pasta adresi.',
+      })
+      return
+    }
+
+    // Šeit nākotnē var pieslēgt API pieprasījumu.
+    // Pašlaik parādam paziņojumu un notīram formu.
+    setContactStatus({
+      type: 'success',
+      message: 'Paldies! Mēs saņēmām jūsu ziņu un atbildēsim pēc iespējas ātrāk.',
+    })
+    setContactForm({
+      name: '',
+      email: '',
+      message: '',
+    })
+  }
+
   return (
     <div className="about-page">
       <div className="about-hero">
@@ -117,6 +176,92 @@ const AboutPage = () => {
               <p className="member-role">Dibinātājs</p>
             </div>
       
+          </div>
+        </div>
+      </section>
+
+      <section className="about-contact" id="contact">
+        <div className="content-container">
+          <div className="contact-layout">
+            <div className="contact-intro">
+              <h2 className="section-title">Sazinies ar mums</h2>
+              <p className="contact-subtitle">
+                Jautājumi par rezervācijām, sadarbību vai idejām platformas uzlabošanai – raksti mums,
+                un mūsu komanda atbildēs personīgi.
+              </p>
+              <div className="contact-meta">
+                <div className="contact-meta-item">
+                  <span className="contact-label">E-pasts</span>
+                  <a href="mailto:support@garso.lv" className="contact-link">support@garso.lv</a>
+                </div>
+                <div className="contact-meta-item">
+                  <span className="contact-label">Darba laiks</span>
+                  <p className="contact-text">Darba dienās 9:00 – 18:00</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <form className="contact-form" onSubmit={handleContactSubmit} noValidate>
+                <div className="contact-row">
+                  <div className="contact-field">
+                    <label htmlFor="contact-name">Vārds</label>
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      value={contactForm.name}
+                      onChange={handleContactChange}
+                      placeholder="Kā jūs sauc?"
+                      autoComplete="name"
+                      required
+                    />
+                  </div>
+                  <div className="contact-field">
+                    <label htmlFor="contact-email">E-pasta adrese</label>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      value={contactForm.email}
+                      onChange={handleContactChange}
+                      placeholder="jusu@epasts.lv"
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="contact-field">
+                  <label htmlFor="contact-message">Ziņojums</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="4"
+                    value={contactForm.message}
+                    onChange={handleContactChange}
+                    placeholder="Pastāstiet, kā varam palīdzēt."
+                    required
+                  />
+                </div>
+
+                {contactStatus.type !== 'idle' && (
+                  <p
+                    className={
+                      contactStatus.type === 'error'
+                        ? 'contact-status contact-status-error'
+                        : 'contact-status contact-status-success'
+                    }
+                  >
+                    {contactStatus.message}
+                  </p>
+                )}
+
+                <button type="submit" className="contact-submit">
+                  Nosūtīt ziņu
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>

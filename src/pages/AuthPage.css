@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1C5A72 0%, #2a7a94 100%);
-  padding: 40px 20px;
+  background: var(--bg);
+  padding: var(--space-6) var(--space-2);
 }
 
 .auth-container {
@@ -13,17 +13,18 @@
 }
 
 .auth-card {
-  background: white;
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
   border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xl);
   animation: slideUp 0.5s ease-out;
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -33,65 +34,65 @@
 
 .auth-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: var(--space-4);
 }
 
 .auth-title {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  color: #1C5A72;
-  margin-bottom: 8px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
 }
 
 .auth-subtitle {
-  font-size: 16px;
-  color: #666;
+  font-size: 15px;
+  color: var(--text-secondary);
 }
 
 .account-type-selector {
-  margin-bottom: 24px;
+  margin-bottom: var(--space-3);
 }
 
 .account-type-label {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 12px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
 }
 
 .account-type-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: var(--space-1);
 }
 
 .account-type-btn {
-  background: #f5f5f5;
-  border: 2px solid #e0e0e0;
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 12px 8px;
+  padding: var(--space-2) var(--space-1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-1);
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   font-size: 13px;
   font-weight: 600;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .account-type-btn:hover {
-  border-color: #1C5A72;
-  background: #f0f7fa;
-  transform: translateY(-1px);
+  border-color: var(--border-focus);
+  background: rgba(245, 158, 11, 0.08);
+  transform: translateY(-2px);
 }
 
 .account-type-btn.active {
-  background: #1C5A72;
-  border-color: #1C5A72;
-  color: white;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
 }
 
 .account-icon {
@@ -102,8 +103,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #e0e0e0;
-  color: #555;
+  background: var(--border-subtle);
+  color: var(--text-secondary);
   font-size: 16px;
   font-weight: 700;
   display: flex;
@@ -114,41 +115,53 @@
 }
 
 .account-type-btn.active .account-icon-letter {
-  background: rgba(255, 255, 255, 0.3);
-  color: white;
+  background: rgba(15, 23, 42, 0.35);
+  color: var(--bg);
+}
+
+[data-theme="light"] .account-type-btn.active .account-icon-letter {
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--bg);
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-3);
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-1);
 }
 
 .form-group label {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .form-group input {
-  padding: 12px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  padding: var(--space-2) var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
   font-size: 15px;
-  transition: all 0.3s ease;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
+}
+
+.form-group input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #1C5A72;
-  box-shadow: 0 0 0 3px rgba(28, 90, 114, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 .form-options {
@@ -161,47 +174,48 @@
 .checkbox-label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-1);
   cursor: pointer;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .checkbox-label input[type="checkbox"] {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #1C5A72;
+  accent-color: var(--accent);
 }
 
 .forgot-password {
-  color: #1C5A72;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .forgot-password:hover {
-  color: #2a7a94;
+  color: var(--accent-hover);
   text-decoration: underline;
 }
 
 .auth-submit-btn {
-  background: linear-gradient(135deg, #1C5A72 0%, #2a7a94 100%);
-  color: white;
+  background: var(--accent);
+  color: var(--bg);
   border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 8px;
-  box-shadow: 0 4px 12px rgba(28, 90, 114, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  margin-top: var(--space-1);
+  box-shadow: var(--shadow-md);
 }
 
 .auth-submit-btn:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(28, 90, 114, 0.35);
+  box-shadow: var(--shadow-glow);
 }
 
 .auth-submit-btn:active {
@@ -209,111 +223,95 @@
 }
 
 .auth-footer {
-  margin-top: 24px;
+  margin-top: var(--space-3);
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .auth-toggle {
   background: none;
   border: none;
-  color: #1C5A72;
+  color: var(--accent);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   padding: 0;
   font-size: inherit;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .auth-toggle:hover {
-  color: #2a7a94;
+  color: var(--accent-hover);
 }
 
 @media (max-width: 768px) {
   .auth-page {
-    padding: 20px 16px;
+    padding: var(--space-2) var(--space-2);
   }
-  
   .auth-card {
-    padding: 32px 24px;
+    padding: var(--space-4) var(--space-3);
   }
-  
   .auth-title {
-    font-size: 28px;
+    font-size: 24px;
   }
-  
   .account-type-buttons {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: var(--space-1);
   }
-  
   .account-type-btn {
     flex-direction: row;
     justify-content: flex-start;
-    padding: 12px 16px;
+    padding: var(--space-2) var(--space-2);
   }
-  
   .form-options {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--space-2);
   }
 }
 
 @media (max-width: 480px) {
   .auth-page {
-    padding: 16px 12px;
+    padding: var(--space-2) var(--space-2);
     align-items: flex-start;
-    padding-top: 24px;
+    padding-top: var(--space-3);
   }
-  
   .auth-container {
     max-width: 100%;
   }
-  
   .auth-card {
-    padding: 24px 16px;
+    padding: var(--space-3) var(--space-2);
     border-radius: 16px;
   }
-  
   .auth-header {
-    margin-bottom: 24px;
+    margin-bottom: var(--space-3);
   }
-  
   .auth-title {
-    font-size: 24px;
+    font-size: 22px;
   }
-  
   .auth-subtitle {
     font-size: 14px;
   }
-  
   .account-type-buttons {
-    gap: 6px;
+    gap: var(--space-1);
   }
-  
   .account-type-btn {
-    padding: 10px 14px;
+    padding: var(--space-1) var(--space-2);
     font-size: 12px;
   }
-  
   .account-icon {
     font-size: 20px;
   }
-  
   .auth-form {
-    gap: 16px;
+    gap: var(--space-2);
   }
-  
   .form-group input {
     padding: 12px 14px;
-    font-size: 16px; /* prevents zoom on iOS */
+    font-size: 16px;
   }
-  
   .auth-submit-btn {
-    padding: 14px 20px;
+    padding: var(--space-2) var(--space-2);
     font-size: 16px;
   }
 }

@@ -16,50 +16,48 @@
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.85));
   display: flex;
   align-items: flex-end;
-  padding-bottom: 40px;
+  padding-bottom: var(--space-6);
 }
 
 .restaurant-title {
-  color: white;
-  font-size: 48px;
+  color: var(--text-primary);
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
-  margin-top: 16px;
+  margin-top: var(--space-2);
 }
 
 .back-button {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(248, 250, 252, 0.95);
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #333;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  color: var(--bg);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .back-button:hover {
-  background: white;
-  transform: translateY(-1px);
+  background: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: var(--space-6) var(--space-3);
 }
 
 .detail-layout {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: 48px;
+  gap: var(--space-6);
 }
 
 .detail-main {
@@ -67,16 +65,16 @@
 }
 
 .restaurant-header-info {
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(248, 250, 252, 0.08);
 }
 
 .rating-section {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
 }
 
 .stars-large {
@@ -86,70 +84,76 @@
 
 .stars-large .star {
   font-size: 24px;
+  color: rgba(248, 250, 252, 0.2);
+}
+
+.stars-large .star.filled {
+  color: var(--accent);
 }
 
 .rating-text {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: var(--space-1);
 }
 
 .rating-number-large {
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .review-count-large {
   font-size: 16px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .restaurant-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-1);
 }
 
 .tag {
-  background-color: #f5f5f5;
-  padding: 6px 12px;
-  border-radius: 4px;
+  background: var(--card);
+  border: 1px solid rgba(248, 250, 252, 0.1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 12px;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .section {
-  margin-bottom: 40px;
+  margin-bottom: var(--space-6);
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: #1C5A72;
-  margin-bottom: 16px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
 }
 
 .description {
   font-size: 16px;
   line-height: 1.6;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .details-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: var(--space-2);
 }
 
 .detail-item {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .detail-item strong {
-  color: #333;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -160,18 +164,18 @@
 }
 
 .reservation-card {
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--card);
+  border: 1px solid rgba(248, 250, 252, 0.08);
+  border-radius: 12px;
+  padding: var(--space-3);
+  box-shadow: var(--shadow-lg);
 }
 
 .reservation-title {
   font-size: 20px;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
 }
 
 .reservation-preview {
@@ -180,26 +184,28 @@
 
 .reservation-text {
   font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
 }
 
 .btn-reserve {
   width: 100%;
-  background-color: #1C5A72;
-  color: white;
+  background: var(--accent);
+  color: var(--bg);
   border: none;
-  padding: 14px 24px;
-  border-radius: 4px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-reserve:hover {
-  background-color: #2a7a94;
-  transform: translateY(-1px);
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
 }
 
 @media (max-width: 968px) {
