@@ -1,0 +1,9 @@
+{
+  "name": "Tables & Tales",
+  "short_name": "TablesTales",
+  "start_url": "./index.php?route=home",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#1f2937",
+  "icons": []
+}
