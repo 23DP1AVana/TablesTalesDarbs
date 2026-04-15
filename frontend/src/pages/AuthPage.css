@@ -1,0 +1,324 @@
+.auth-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: var(--space-6) var(--space-2);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xl);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.auth-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.account-type-selector {
+  margin-bottom: var(--space-3);
+}
+
+.account-type-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.account-type-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1);
+}
+
+.account-type-btn {
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: var(--space-2) var(--space-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.account-type-btn:hover {
+  border-color: var(--border-focus);
+  background: rgba(245, 158, 11, 0.08);
+  transform: translateY(-2px);
+}
+
+.account-type-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.account-icon {
+  font-size: 24px;
+}
+
+.account-icon-letter {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.account-type-btn.active .account-icon-letter {
+  background: rgba(15, 23, 42, 0.35);
+  color: var(--bg);
+}
+
+[data-theme="light"] .account-type-btn.active .account-icon-letter {
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--bg);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input {
+  padding: var(--space-2) var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  font-size: 15px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.forgot-password {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.auth-submit-btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  margin-top: var(--space-1);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-submit-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+.auth-status {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #fca5a5;
+  text-align: center;
+}
+
+.auth-footer {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.auth-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  font-size: inherit;
+  transition: color 0.2s ease;
+}
+
+.auth-toggle:hover {
+  color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+  .auth-page {
+    padding: var(--space-2) var(--space-2);
+  }
+  .auth-card {
+    padding: var(--space-4) var(--space-3);
+  }
+  .auth-title {
+    font-size: 24px;
+  }
+  .account-type-buttons {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  .account-type-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: var(--space-2) var(--space-2);
+  }
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: var(--space-2) var(--space-2);
+    align-items: flex-start;
+    padding-top: var(--space-3);
+  }
+  .auth-container {
+    max-width: 100%;
+  }
+  .auth-card {
+    padding: var(--space-3) var(--space-2);
+    border-radius: 16px;
+  }
+  .auth-header {
+    margin-bottom: var(--space-3);
+  }
+  .auth-title {
+    font-size: 22px;
+  }
+  .auth-subtitle {
+    font-size: 14px;
+  }
+  .account-type-buttons {
+    gap: var(--space-1);
+  }
+  .account-type-btn {
+    padding: var(--space-1) var(--space-2);
+    font-size: 12px;
+  }
+  .account-icon {
+    font-size: 20px;
+  }
+  .auth-form {
+    gap: var(--space-2);
+  }
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+  .auth-submit-btn {
+    padding: var(--space-2) var(--space-2);
+    font-size: 16px;
+  }
+}

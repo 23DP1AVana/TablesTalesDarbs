@@ -8,15 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-vendor
-frontend/node_modules
-backend/vendor
-backend/.env
 dist
 dist-ssr
 *.local
-database/*.sqlite
-backend/database/*.sqlite
 
 # Editor directories and files
 .vscode/*
