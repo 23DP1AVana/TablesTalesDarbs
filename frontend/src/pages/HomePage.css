@@ -143,6 +143,26 @@
   color: var(--text-secondary);
 }
 
+.quick-search-row {
+  margin-bottom: var(--space-2);
+}
+
+.quick-restaurant-search {
+  width: min(480px, 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.quick-restaurant-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
 .clear-filter {
   background: var(--card);
   border: 1px solid var(--border-subtle);

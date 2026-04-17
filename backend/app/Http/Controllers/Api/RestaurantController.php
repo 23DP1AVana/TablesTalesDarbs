@@ -39,7 +39,11 @@ class RestaurantController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
+            'cuisine' => ['required', 'string', 'max:80'],
             'description' => ['required', 'string', 'max:2000'],
+            'rating' => ['required', 'numeric', 'min:1', 'max:5'],
+            'location' => ['required', 'string', 'max:120'],
+            'price_range' => ['required', Rule::in(['$', '$$', '$$$', '$$$$'])],
             'owner_id' => ['nullable', Rule::exists('users', 'id')],
         ]);
 
@@ -65,7 +69,11 @@ class RestaurantController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
+            'cuisine' => ['required', 'string', 'max:80'],
             'description' => ['required', 'string', 'max:2000'],
+            'rating' => ['required', 'numeric', 'min:1', 'max:5'],
+            'location' => ['required', 'string', 'max:120'],
+            'price_range' => ['required', Rule::in(['$', '$$', '$$$', '$$$$'])],
             'owner_id' => ['nullable', Rule::exists('users', 'id')],
         ]);
 

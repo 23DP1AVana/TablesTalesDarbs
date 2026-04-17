@@ -18,11 +18,11 @@ const mapApiRestaurantToCard = (item) => ({
   backendId: item.id,
   name: item.name,
   description: item.description,
-  cuisine: 'Contemporary',
-  rating: 4.4 + ((item.id % 5) * 0.1),
+  cuisine: item.cuisine || 'Contemporary',
+  rating: Number(item.rating ?? 4.0),
   reviews: 100 + item.id,
-  priceRange: '$$',
-  location: 'Rīga, Latvija',
+  priceRange: item.price_range || '$$',
+  location: item.location || 'Rīga, Latvija',
   phone: '+371 20 000 000',
   image: API_RESTAURANT_IMAGES[item.id % API_RESTAURANT_IMAGES.length],
 })
@@ -221,6 +221,18 @@ const HomePage = () => {
                   Notīrīt filtru
                 </button>
               )}
+            </div>
+            <div className="quick-search-row">
+              <input
+                type="text"
+                className="quick-restaurant-search"
+                placeholder="Ātrā meklēšana pēc restorāna nosaukuma..."
+                value={searchQuery}
+                onChange={(event) => {
+                  setSearchQuery(event.target.value)
+                  setShowAllRestaurants(false)
+                }}
+              />
             </div>
             <p className="section-subtitle">
               Pieejami {filteredRestaurants.length} {filteredRestaurants.length === 1 ? 'restorāns' : 'restorāni'}
