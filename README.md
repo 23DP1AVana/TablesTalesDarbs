@@ -16,12 +16,12 @@ Nosleguma darba projekts ar skaidru strukturu: **Laravel API backend + React fro
 1. Atvert terminali mapes `backend/`:
    - `composer install`
    - `php artisan migrate:fresh --seed`
-   - `php artisan serve`
+   - `php -d auto_prepend_file= -S 127.0.0.1:9100 -t public`
 2. Atvert otru terminali mapes `frontend/`:
    - `npm install`
    - `npm run dev`
 3. Frontend adrese: `http://localhost:5173`
-4. Backend API adrese: `http://127.0.0.1:8000/api`
+4. Backend API adrese: `http://127.0.0.1:9100/api`
 
 ## Demo lietotaji
 - Admin: `admin@local.test` / `Admin123!`

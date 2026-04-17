@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './ReservationForm.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100/api'
+
 const ReservationForm = ({ restaurant, onCancel, restaurantId }) => {
   const [formData, setFormData] = useState({
     date: '',
@@ -43,7 +45,7 @@ const ReservationForm = ({ restaurant, onCancel, restaurantId }) => {
     try {
       setSubmitting(true)
       const reservationAt = `${formData.date}T${formData.time}:00`
-      const response = await fetch('http://127.0.0.1:8000/api/reservations', {
+      const response = await fetch(`${API_BASE_URL}/reservations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

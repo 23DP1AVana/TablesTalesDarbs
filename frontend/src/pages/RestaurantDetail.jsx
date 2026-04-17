@@ -4,6 +4,8 @@ import { restaurants } from '../data/restaurants'
 import ReservationForm from '../components/ReservationForm'
 import './RestaurantDetail.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100/api'
+
 const RestaurantDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -21,7 +23,7 @@ const RestaurantDetail = () => {
 
     const loadApiRestaurant = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/restaurants/${backendId}`)
+        const response = await fetch(`${API_BASE_URL}/restaurants/${backendId}`)
         const data = await response.json()
         if (!response.ok) return
         setApiRestaurant({

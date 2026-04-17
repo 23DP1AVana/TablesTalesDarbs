@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './AuthPage.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100/api'
+
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true)
   const [accountType, setAccountType] = useState('user')
@@ -38,7 +40,7 @@ const AuthPage = () => {
         ? { email: formData.email, password: formData.password }
         : { username: formData.name, email: formData.email, password: formData.password }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/${endpoint}`, {
+      const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -53,6 +55,10 @@ const AuthPage = () => {
       localStorage.setItem('auth_user', JSON.stringify(data.user))
       navigate('/dashboard')
     } catch (error) {
+      if (error instanceof TypeError) {
+        setStatus('Neizdevas sasniegt serveri. Parbaudi, vai backend ir palaists un API adrese ir pareiza.')
+        return
+      }
       setStatus(error.message)
     }
   }
