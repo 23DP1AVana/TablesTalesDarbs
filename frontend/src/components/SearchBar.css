@@ -63,6 +63,36 @@
   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
+[data-theme="light"] .search-bar {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .search-field label {
+  color: #334155;
+}
+
+[data-theme="light"] .search-input {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.15);
+  color: #0f172a;
+}
+
+[data-theme="light"] .search-input::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+[data-theme="light"] input.search-input[type="date"],
+[data-theme="light"] select.search-input {
+  color: #0f172a;
+}
+
+[data-theme="light"] select.search-input option {
+  color: #0f172a;
+  background: #ffffff;
+}
+
 .search-button {
   width: 100%;
   background: var(--accent);
