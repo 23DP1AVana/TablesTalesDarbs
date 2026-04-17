@@ -26,6 +26,7 @@ const RestaurantDetail = () => {
         if (!response.ok) return
         setApiRestaurant({
           id: `api-${data.id}`,
+          backendId: data.id,
           name: data.name,
           description: data.description,
           cuisine: 'Contemporary',
@@ -155,6 +156,7 @@ const RestaurantDetail = () => {
               ) : (
                 <ReservationForm
                   restaurant={restaurant}
+                  restaurantId={restaurant.backendId || restaurant.id}
                   onCancel={() => setShowReservationForm(false)}
                 />
               )}

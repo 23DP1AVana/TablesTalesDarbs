@@ -47,6 +47,12 @@
   border: 1px solid rgba(248, 250, 252, 0.08);
 }
 
+[data-theme="light"] .restaurant-badge {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
 .restaurant-info {
   padding: var(--space-2);
 }
@@ -103,6 +109,15 @@
   gap: var(--space-1);
   font-size: 14px;
   color: var(--text-secondary);
+}
+
+[data-theme="light"] .restaurant-meta {
+  color: #475569;
+}
+
+[data-theme="light"] .cuisine {
+  color: #0f172a;
+  font-weight: 600;
 }
 
 .restaurant-meta span {

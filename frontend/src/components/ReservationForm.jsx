@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ReservationForm.css'
 
-const ReservationForm = ({ restaurant, onCancel }) => {
+const ReservationForm = ({ restaurant, onCancel, restaurantId }) => {
   const [formData, setFormData] = useState({
     date: '',
     time: '',
@@ -13,6 +13,8 @@ const ReservationForm = ({ restaurant, onCancel }) => {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const today = new Date().toISOString().split('T')[0]
 
@@ -23,12 +25,45 @@ const ReservationForm = ({ restaurant, onCancel }) => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Simulate form submission
-    setTimeout(() => {
+    setError('')
+
+    const token = localStorage.getItem('auth_token')
+    if (!token) {
+      setError('Lai veiktu rezervaciju, vispirms piesledzies kontam.')
+      return
+    }
+
+    if (!restaurantId) {
+      setError('Neizdevas noteikt restorana ID rezervacijai.')
+      return
+    }
+
+    try {
+      setSubmitting(true)
+      const reservationAt = `${formData.date}T${formData.time}:00`
+      const response = await fetch('http://127.0.0.1:8000/api/reservations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          restaurant_id: Number(restaurantId),
+          reservation_at: reservationAt,
+        }),
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.message || 'Neizdevas izveidot rezervaciju.')
+      }
       setSubmitted(true)
-    }, 500)
+    } catch (requestError) {
+      setError(requestError.message || 'Neizdevas izveidot rezervaciju.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -161,10 +196,11 @@ const ReservationForm = ({ restaurant, onCancel }) => {
         <button type="button" className="btn-cancel" onClick={onCancel}>
           Atcelt
         </button>
-        <button type="submit" className="btn-submit">
-          Apstiprināt rezervāciju
+        <button type="submit" className="btn-submit" disabled={submitting}>
+          {submitting ? 'Saglabā...' : 'Apstiprināt rezervāciju'}
         </button>
       </div>
+      {error && <p className="reservation-form-error">{error}</p>}
     </form>
   )
 }
