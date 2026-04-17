@@ -61,7 +61,7 @@ const Header = () => {
         <nav className="nav nav-desktop">
           <a href="/#restaurants" className="nav-link">Restorāni</a>
           <Link to="/about" className="nav-link">Par mums</Link>
-          <Link to="/contact" className="nav-link">Contact Us</Link>
+          <Link to="/contact" className="nav-link">Sazinies</Link>
           {token && <Link to="/dashboard" className="nav-link">Dashboard</Link>}
           <button
             type="button"
@@ -110,7 +110,7 @@ const Header = () => {
           onClick={() => { toggleTheme(); closeMenu() }}
           aria-label={theme === 'dark' ? 'Ieslēgt gaišo režīmu' : 'Ieslēgt tumšo režīmu'}
         >
-          {theme === 'dark' ? '☀️ Gaisais režīms' : '🌙 Tumšais režīms'}
+          {theme === 'dark' ? 'Gaišais režīms' : 'Tumšais režīms'}
         </button>
         {!token ? (
           <Link to="/auth" className="nav-mobile-link nav-mobile-btn" onClick={closeMenu}>Pieslēgties</Link>

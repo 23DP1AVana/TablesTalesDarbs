@@ -41,7 +41,7 @@ const AboutPage = () => {
           <div className="values-grid">
             <div className="value-card">
               <div className="value-card-image-wrap">
-                <img src="https://images.unsplash.com/photo-1506784362847-6d3105a5e4b2?w=600&h=400&fit=crop" alt="Vienkāršība" className="value-card-image" />
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vienkāršība" className="value-card-image" />
               </div>
               <h3 className="value-title">Vienkāršība</h3>
               <p className="value-description">

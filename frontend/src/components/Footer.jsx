@@ -41,7 +41,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section footer-brand">
-            <h3 className="footer-title">Tables</h3>
+            <h3 className="footer-title">Garšo</h3>
             <p className="footer-description">
               Labākā vieta, lai atrastu un rezervētu galdu Latvijas restorānos.
             </p>
