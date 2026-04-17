@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { restaurants } from '../data/restaurants'
 import ReservationForm from '../components/ReservationForm'
@@ -7,10 +7,42 @@ import './RestaurantDetail.css'
 const RestaurantDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const restaurant = restaurants.find(r => r.id === parseInt(id))
+  const [apiRestaurant, setApiRestaurant] = useState(null)
+  const isApiRestaurant = id?.startsWith('api-')
+  const backendId = isApiRestaurant ? id.replace('api-', '') : null
+  const staticRestaurant = restaurants.find((r) => r.id === parseInt(id, 10))
+  const restaurant = isApiRestaurant ? apiRestaurant : staticRestaurant
 
   const [showReservationForm, setShowReservationForm] = useState(false)
   const fallbackBanner = `https://picsum.photos/seed/restaurant-${id}/1400/900`
+
+  useEffect(() => {
+    if (!isApiRestaurant || !backendId) return
+
+    const loadApiRestaurant = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurants/${backendId}`)
+        const data = await response.json()
+        if (!response.ok) return
+        setApiRestaurant({
+          id: `api-${data.id}`,
+          name: data.name,
+          description: data.description,
+          cuisine: 'Contemporary',
+          rating: 4.4 + ((data.id % 5) * 0.1),
+          reviews: 100 + data.id,
+          priceRange: '$$',
+          location: 'Rīga, Latvija',
+          phone: '+371 20 000 000',
+          image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop&sig=${data.id}`,
+        })
+      } catch (_error) {
+        // Keep fallback "not found" state if API call fails.
+      }
+    }
+
+    loadApiRestaurant()
+  }, [backendId, isApiRestaurant])
 
   if (!restaurant) {
     return (

@@ -16,7 +16,7 @@ Nosleguma darba projekts ar skaidru strukturu: **Laravel API backend + React fro
 1. Atvert terminali mapes `backend/`:
    - `composer install`
    - `php artisan migrate:fresh --seed`
-   - `php artisan serve --no-reload`
+   - `php artisan serve`
 2. Atvert otru terminali mapes `frontend/`:
    - `npm install`
    - `npm run dev`

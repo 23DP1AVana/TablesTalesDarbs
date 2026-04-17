@@ -4,6 +4,8 @@ import './RestaurantCard.css'
 
 const RestaurantCard = ({ restaurant }) => {
   const fallbackBanner = `https://picsum.photos/seed/restaurant-${restaurant.id}/900/600`
+  const normalizedRating = Number(restaurant.rating || 0)
+  const displayRating = normalizedRating.toFixed(1)
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating)
@@ -43,8 +45,8 @@ const RestaurantCard = ({ restaurant }) => {
       <div className="restaurant-info">
         <h3 className="restaurant-name">{restaurant.name}</h3>
         <div className="restaurant-rating">
-          <div className="stars">{renderStars(restaurant.rating)}</div>
-          <span className="rating-number">{restaurant.rating}</span>
+          <div className="stars">{renderStars(normalizedRating)}</div>
+          <span className="rating-number">{displayRating}</span>
           <span className="review-count">({restaurant.reviews} atsauksmes)</span>
         </div>
         <div className="restaurant-meta">

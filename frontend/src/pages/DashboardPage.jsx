@@ -8,12 +8,6 @@ const DashboardPage = () => {
   const [reservations, setReservations] = useState([])
   const [stats, setStats] = useState(null)
   const [messages, setMessages] = useState([])
-  const [users, setUsers] = useState([])
-  const [userRoleMap, setUserRoleMap] = useState({})
-  const [userSearch, setUserSearch] = useState('')
-  const [userRoleFilter, setUserRoleFilter] = useState('')
-  const [userPage, setUserPage] = useState(1)
-  const [userPagination, setUserPagination] = useState({ current_page: 1, last_page: 1, total: 0 })
   const [reservationStatusFilter, setReservationStatusFilter] = useState('')
   const [restaurantSearch, setRestaurantSearch] = useState('')
   const [restaurantForm, setRestaurantForm] = useState({ id: null, name: '', description: '' })
@@ -70,45 +64,6 @@ const DashboardPage = () => {
   useEffect(() => {
     loadData()
   }, [reservationStatusFilter, token, user?.role])
-
-  const loadUsers = async () => {
-    if (user?.role !== 'admin') return
-
-    const params = new URLSearchParams()
-    params.set('per_page', '10')
-    params.set('page', String(userPage))
-    if (userSearch.trim()) params.set('search', userSearch.trim())
-    if (userRoleFilter) params.set('role', userRoleFilter)
-
-    try {
-      setError('')
-      const usersResponse = await fetch(`http://127.0.0.1:8000/api/users?${params.toString()}`, { headers: authHeaders })
-      const usersData = await usersResponse.json()
-      if (!usersResponse.ok) {
-        throw new Error(usersData.message || 'Neizdevas ieladet lietotajus')
-      }
-
-      setUsers(usersData.data || [])
-      setUserRoleMap((prev) => {
-        const next = { ...prev }
-        ;(usersData.data || []).forEach((item) => {
-          next[item.id] = prev[item.id] || item.role
-        })
-        return next
-      })
-      setUserPagination({
-        current_page: usersData.current_page || 1,
-        last_page: usersData.last_page || 1,
-        total: usersData.total || 0,
-      })
-    } catch (requestError) {
-      setError(requestError.message)
-    }
-  }
-
-  useEffect(() => {
-    loadUsers()
-  }, [token, user?.role, userPage, userRoleFilter, userSearch])
 
   const onRestaurantFormChange = (event) => {
     setRestaurantForm((prev) => ({ ...prev, [event.target.name]: event.target.value }))
@@ -211,29 +166,6 @@ const DashboardPage = () => {
       }
       setInfo('Rezervacija izdzesta.')
       await loadData()
-    } catch (requestError) {
-      setError(requestError.message)
-    }
-  }
-
-  const updateUserRole = async (targetUserId) => {
-    const selectedRole = userRoleMap[targetUserId]
-    if (!selectedRole) return
-
-    setError('')
-    setInfo('')
-    try {
-      const response = await fetch(`http://127.0.0.1:8000/api/users/${targetUserId}/role`, {
-        method: 'PUT',
-        headers: authHeaders,
-        body: JSON.stringify({ role: selectedRole }),
-      })
-      const data = await response.json()
-      if (!response.ok) {
-        throw new Error(data.message || 'Neizdevas atjaunot lietotaja lomu')
-      }
-      setInfo('Lietotaja loma atjaunota.')
-      await loadUsers()
     } catch (requestError) {
       setError(requestError.message)
     }
@@ -396,84 +328,6 @@ const DashboardPage = () => {
                   <p>{item.message}</p>
                 </div>
               ))}
-            </div>
-          </section>
-        )}
-
-        {user?.role === 'admin' && (
-          <section className="dashboard-section">
-            <div className="dashboard-section-title-row">
-              <h2>Lietotāju lomas ({userPagination.total})</h2>
-              <input
-                className="dashboard-inline-input"
-                placeholder="Meklet pec varda vai e-pasta"
-                value={userSearch}
-                onChange={(event) => {
-                  setUserSearch(event.target.value)
-                  setUserPage(1)
-                }}
-              />
-            </div>
-            <div className="dashboard-btn-row">
-              <select
-                className="dashboard-inline-input"
-                value={userRoleFilter}
-                onChange={(event) => {
-                  setUserRoleFilter(event.target.value)
-                  setUserPage(1)
-                }}
-              >
-                <option value="">Visas lomas</option>
-                <option value="user">user</option>
-                <option value="representative">representative</option>
-                <option value="admin">admin</option>
-              </select>
-            </div>
-            <div className="dashboard-list">
-              {users.map((item) => (
-                <div className="dashboard-list-item" key={item.id}>
-                  <p>
-                    <strong>{item.username}</strong> ({item.email})
-                  </p>
-                  <p>Esošā loma: {item.role}</p>
-                  <div className="dashboard-btn-row">
-                    <select
-                      value={userRoleMap[item.id] || item.role}
-                      onChange={(event) =>
-                        setUserRoleMap((prev) => ({ ...prev, [item.id]: event.target.value }))
-                      }
-                    >
-                      <option value="user">user</option>
-                      <option value="representative">representative</option>
-                      <option value="admin">admin</option>
-                    </select>
-                    <button type="button" onClick={() => updateUserRole(item.id)}>
-                      Saglabāt lomu
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="dashboard-pagination">
-              <button
-                type="button"
-                className="btn-secondary"
-                disabled={userPagination.current_page <= 1}
-                onClick={() => setUserPage((prev) => Math.max(1, prev - 1))}
-              >
-                Iepriekšējā
-              </button>
-              <span>
-                Lapa {userPagination.current_page} no {userPagination.last_page}
-              </span>
-              <button
-                type="button"
-                className="btn-secondary"
-                disabled={userPagination.current_page >= userPagination.last_page}
-                onClick={() => setUserPage((prev) => Math.min(userPagination.last_page, prev + 1))}
-              >
-                Nākamā
-              </button>
             </div>
           </section>
         )}

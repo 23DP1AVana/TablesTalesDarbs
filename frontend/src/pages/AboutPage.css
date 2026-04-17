@@ -51,25 +51,21 @@
 
 .story-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
   align-items: center;
-  justify-items: center;
 }
 
 .story-text {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  align-items: center;
-  text-align: center;
 }
 
 .story-paragraph {
   font-size: 17px;
   line-height: 1.8;
   color: var(--text-secondary);
-  max-width: 680px;
 }
 
 .story-image {
@@ -77,8 +73,6 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  max-width: 680px;
-  width: 100%;
 }
 
 .story-image-img {

@@ -1,8 +1,31 @@
-import React, { useState, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import SearchBar from '../components/SearchBar'
 import RestaurantCard from '../components/RestaurantCard'
 import { restaurants } from '../data/restaurants'
 import './HomePage.css'
+
+const API_RESTAURANT_IMAGES = [
+  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1473496169904-7c8c43404835?w=800&h=600&fit=crop',
+]
+
+const mapApiRestaurantToCard = (item) => ({
+  id: `api-${item.id}`,
+  backendId: item.id,
+  name: item.name,
+  description: item.description,
+  cuisine: 'Contemporary',
+  rating: 4.4 + ((item.id % 5) * 0.1),
+  reviews: 100 + item.id,
+  priceRange: '$$',
+  location: 'Rīga, Latvija',
+  phone: '+371 20 000 000',
+  image: API_RESTAURANT_IMAGES[item.id % API_RESTAURANT_IMAGES.length],
+})
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -12,9 +35,29 @@ const HomePage = () => {
   const [partySize, setPartySize] = useState('2')
   const [selectedCuisine, setSelectedCuisine] = useState('')
   const [showAllRestaurants, setShowAllRestaurants] = useState(false)
+  const [apiRestaurants, setApiRestaurants] = useState([])
+
+  useEffect(() => {
+    const loadApiRestaurants = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/restaurants?sort=name_asc')
+        const data = await response.json()
+        if (!response.ok) return
+        setApiRestaurants(data.map(mapApiRestaurantToCard))
+      } catch (_error) {
+        // Keep page usable with static restaurants if API is unavailable.
+      }
+    }
+
+    loadApiRestaurants()
+  }, [])
+
+  const allRestaurants = useMemo(() => {
+    return [...restaurants, ...apiRestaurants]
+  }, [apiRestaurants])
 
   const filteredRestaurants = useMemo(() => {
-    return restaurants.filter(restaurant => {
+    return allRestaurants.filter(restaurant => {
       const searchLower = searchQuery.toLowerCase().trim()
       const locationLower = location.toLowerCase().trim()
       
@@ -51,12 +94,12 @@ const HomePage = () => {
       
       return matchesSearch && matchesCuisine
     })
-  }, [searchQuery, location, selectedCuisine])
+  }, [allRestaurants, searchQuery, location, selectedCuisine])
 
-  const featuredRestaurants = restaurants.filter(r => r.rating >= 4.6).slice(0, 6)
-  const topRatedRestaurants = [...restaurants].sort((a, b) => b.rating - a.rating).slice(0, 6)
+  const featuredRestaurants = allRestaurants.filter(r => r.rating >= 4.6).slice(0, 6)
+  const topRatedRestaurants = [...allRestaurants].sort((a, b) => b.rating - a.rating).slice(0, 6)
   
-  const cuisines = [...new Set(restaurants.map(r => r.cuisine))]
+  const cuisines = [...new Set(allRestaurants.map(r => r.cuisine))]
   
   const displayedRestaurants = showAllRestaurants 
     ? filteredRestaurants 
