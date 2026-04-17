@@ -111,7 +111,7 @@ const AboutPage = () => {
           <div className="team-grid">
             <div className="team-member">
               <div className="member-avatar-wrap">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Adrians Vanags" className="member-avatar-img" />
+                <img src="https://images.unsplash.com/photo-1545091741-2231068f3478?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Adrians Vanags" className="member-avatar-img" />
               </div>
               <h3 className="member-name">Adrians Vanags</h3>
               <p className="member-role">Dibinātājs</p>
