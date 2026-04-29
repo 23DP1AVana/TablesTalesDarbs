@@ -4,6 +4,7 @@ import RestaurantCard from '../components/RestaurantCard'
 import { restaurants } from '../data/restaurants'
 import './HomePage.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100/api'
 const API_RESTAURANT_IMAGES = [
   'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
   'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
@@ -40,7 +41,7 @@ const HomePage = () => {
   useEffect(() => {
     const loadApiRestaurants = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/restaurants?sort=name_asc')
+        const response = await fetch(`${API_BASE_URL}/restaurants?sort=name_asc`)
         const data = await response.json()
         if (!response.ok) return
         setApiRestaurants(data.map(mapApiRestaurantToCard))

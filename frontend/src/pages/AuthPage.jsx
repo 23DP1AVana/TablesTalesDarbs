@@ -6,7 +6,6 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true)
-  const [accountType, setAccountType] = useState('user')
   const [status, setStatus] = useState('')
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -14,8 +13,6 @@ const AuthPage = () => {
     password: '',
     confirmPassword: '',
     name: '',
-    restaurantName: '',
-    phone: ''
   })
 
   const handleChange = (e) => {
@@ -70,64 +67,17 @@ const AuthPage = () => {
           <div className="auth-header">
             <h1 className="auth-title">{isLogin ? 'Pieslēgties' : 'Reģistrēties'}</h1>
             <p className="auth-subtitle">
-              {isLogin 
-                ? 'Ielogojieties savā kontā' 
-                : 'Izveidojiet jaunu kontu, lai sāktu'}
+              {isLogin
+                ? 'Ielogojieties savā kontā'
+                : 'Izveidojiet jaunu lietotāja kontu, lai rezervētu galdus.'}
             </p>
           </div>
 
-          {!isLogin && (
-            <div className="account-type-selector">
-              <label className="account-type-label">Konta tips:</label>
-              <div className="account-type-buttons">
-                <button
-                  type="button"
-                  className={`account-type-btn ${accountType === 'user' ? 'active' : ''}`}
-                  onClick={() => setAccountType('user')}
-                >
-                  <span className="account-icon account-icon-letter">L</span>
-                  <span>Lietotājs</span>
-                </button>
-                <button
-                  type="button"
-                  className={`account-type-btn ${accountType === 'admin' ? 'active' : ''}`}
-                  onClick={() => setAccountType('admin')}
-                >
-                  <span className="account-icon account-icon-letter">A</span>
-                  <span>Administrators</span>
-                </button>
-                <button
-                  type="button"
-                  className={`account-type-btn ${accountType === 'restaurant' ? 'active' : ''}`}
-                  onClick={() => setAccountType('restaurant')}
-                >
-                  <span className="account-icon account-icon-letter">R</span>
-                  <span>Restorāna pārstāvis</span>
-                </button>
-              </div>
-            </div>
-          )}
-
           <form className="auth-form" onSubmit={handleSubmit}>
-            {!isLogin && accountType === 'restaurant' && (
-              <div className="form-group">
-                <label htmlFor="restaurantName">Restorāna nosaukums</label>
-                <input
-                  type="text"
-                  id="restaurantName"
-                  name="restaurantName"
-                  value={formData.restaurantName}
-                  onChange={handleChange}
-                  required
-                  placeholder="Ievadiet restorāna nosaukumu"
-                />
-              </div>
-            )}
-
             {!isLogin && (
               <div className="form-group">
                 <label htmlFor="name">
-                  {accountType === 'restaurant' ? 'Kontakta persona' : 'Vārds'}
+                  Vārds
                 </label>
                 <input
                   type="text"
@@ -136,22 +86,7 @@ const AuthPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder={accountType === 'restaurant' ? 'Kontakta personas vārds' : 'Jūsu vārds'}
-                />
-              </div>
-            )}
-
-            {!isLogin && accountType === 'restaurant' && (
-              <div className="form-group">
-                <label htmlFor="phone">Tālrunis</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  placeholder="+371 2X XXX XXX"
+                  placeholder="Jūsu vārds"
                 />
               </div>
             )}
@@ -228,8 +163,6 @@ const AuthPage = () => {
                     password: '',
                     confirmPassword: '',
                     name: '',
-                    restaurantName: '',
-                    phone: ''
                   })
                 }}
               >

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './DashboardPage.css'
 
 const DashboardPage = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9100/api'
   const token = localStorage.getItem('auth_token')
   const user = JSON.parse(localStorage.getItem('auth_user') || 'null')
   const [restaurants, setRestaurants] = useState([])
@@ -37,19 +38,20 @@ const DashboardPage = () => {
 
   const canManageRestaurants = user?.role === 'admin' || user?.role === 'representative'
   const canManageReservationStatus = user?.role === 'admin' || user?.role === 'representative'
+  const isRegularUser = user?.role === 'user'
 
   const loadData = async () => {
     try {
       setError('')
-      const restaurantsResponse = await fetch('http://127.0.0.1:8000/api/restaurants?sort=name_asc')
+      const restaurantsResponse = await fetch(`${API_BASE_URL}/restaurants?sort=name_asc`)
       const restaurantsData = await restaurantsResponse.json()
       if (restaurantsResponse.ok) {
         setRestaurants(restaurantsData)
       }
 
       const reservationUrl = reservationStatusFilter
-        ? `http://127.0.0.1:8000/api/reservations?status=${reservationStatusFilter}`
-        : 'http://127.0.0.1:8000/api/reservations'
+        ? `${API_BASE_URL}/reservations?status=${reservationStatusFilter}`
+        : `${API_BASE_URL}/reservations`
       const reservationResponse = await fetch(reservationUrl, { headers: authHeaders })
       const reservationData = await reservationResponse.json()
       if (reservationResponse.ok) {
@@ -57,7 +59,7 @@ const DashboardPage = () => {
       }
 
       if (user?.role === 'admin' || user?.role === 'representative') {
-        const statsResponse = await fetch('http://127.0.0.1:8000/api/stats', { headers: authHeaders })
+        const statsResponse = await fetch(`${API_BASE_URL}/stats`, { headers: authHeaders })
         const statsData = await statsResponse.json()
         if (statsResponse.ok) {
           setStats(statsData)
@@ -65,7 +67,7 @@ const DashboardPage = () => {
       }
 
       if (user?.role === 'admin') {
-        const messageResponse = await fetch('http://127.0.0.1:8000/api/messages', { headers: authHeaders })
+        const messageResponse = await fetch(`${API_BASE_URL}/messages`, { headers: authHeaders })
         const messageData = await messageResponse.json()
         if (messageResponse.ok) {
           setMessages(messageData)
@@ -91,7 +93,7 @@ const DashboardPage = () => {
 
     try {
       setError('')
-      const usersResponse = await fetch(`http://127.0.0.1:8000/api/users?${params.toString()}`, { headers: authHeaders })
+      const usersResponse = await fetch(`${API_BASE_URL}/users?${params.toString()}`, { headers: authHeaders })
       const usersData = await usersResponse.json()
       if (!usersResponse.ok) {
         throw new Error(usersData.message || 'Neizdevas ieladet lietotajus')
@@ -162,8 +164,8 @@ const DashboardPage = () => {
       }
       const isUpdate = Boolean(restaurantForm.id)
       const url = isUpdate
-        ? `http://127.0.0.1:8000/api/restaurants/${restaurantForm.id}`
-        : 'http://127.0.0.1:8000/api/restaurants'
+        ? `${API_BASE_URL}/restaurants/${restaurantForm.id}`
+        : `${API_BASE_URL}/restaurants`
       const method = isUpdate ? 'PUT' : 'POST'
       const response = await fetch(url, {
         method,
@@ -186,7 +188,7 @@ const DashboardPage = () => {
     setError('')
     setInfo('')
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/restaurants/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/restaurants/${id}`, {
         method: 'DELETE',
         headers: authHeaders,
       })
@@ -206,7 +208,7 @@ const DashboardPage = () => {
     setError('')
     setInfo('')
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/reservations/${reservationId}`, {
+      const response = await fetch(`${API_BASE_URL}/reservations/${reservationId}`, {
         method: 'PUT',
         headers: authHeaders,
         body: JSON.stringify({ status: selectedStatus }),
@@ -226,7 +228,7 @@ const DashboardPage = () => {
     setError('')
     setInfo('')
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/reservations/${reservationId}`, {
+      const response = await fetch(`${API_BASE_URL}/reservations/${reservationId}`, {
         method: 'DELETE',
         headers: authHeaders,
       })
@@ -248,7 +250,7 @@ const DashboardPage = () => {
     setError('')
     setInfo('')
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/users/${targetUserId}/role`, {
+      const response = await fetch(`${API_BASE_URL}/users/${targetUserId}/role`, {
         method: 'PUT',
         headers: authHeaders,
         body: JSON.stringify({ role: selectedRole }),
@@ -278,7 +280,7 @@ const DashboardPage = () => {
     <div className="dashboard-page">
       <div className="dashboard-container">
         <div className="dashboard-header">
-          <h1>Dashboard</h1>
+          <h1>{isRegularUser ? 'Manas rezervācijas' : 'Dashboard'}</h1>
           <p>
             Sveiks, <strong>{user?.username}</strong> ({user?.role})
           </p>
@@ -304,6 +306,7 @@ const DashboardPage = () => {
           </section>
         )}
 
+        {!isRegularUser && (
         <section className="dashboard-section">
           <div className="dashboard-section-title-row">
             <h2>Restorani</h2>
@@ -433,6 +436,7 @@ const DashboardPage = () => {
             </button>
           </div>
         </section>
+        )}
 
         <section className="dashboard-section">
           <div className="dashboard-section-title-row">

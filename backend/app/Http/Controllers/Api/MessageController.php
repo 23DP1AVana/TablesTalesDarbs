@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -26,6 +27,17 @@ class MessageController extends Controller
         ]);
 
         $message = Message::create($data);
+
+        $toAddress = (string) env('CONTACT_RECEIVER_EMAIL', env('MAIL_FROM_ADDRESS', 'hello@example.com'));
+
+        if ($toAddress !== '') {
+            Mail::raw(
+                "Jauna ziņa no kontaktformas:\n\nVārds: {$data['name']}\nE-pasts: {$data['email']}\n\nZiņa:\n{$data['message']}",
+                static function ($mail) use ($toAddress): void {
+                    $mail->to($toAddress)->subject('Jauna ziņa no TableTales kontaktformas');
+                }
+            );
+        }
 
         return response()->json($message, 201);
     }
